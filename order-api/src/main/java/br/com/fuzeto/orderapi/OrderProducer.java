@@ -13,7 +13,7 @@ public class OrderProducer {
     }
 
     public void send(OrderEvent event) {
-        kafkaTemplate.send("orders", event);
+        kafkaTemplate.send("orders", event.customer(), event);
 
         System.out.println("Order event sent to Kafka: " + event);
     }
